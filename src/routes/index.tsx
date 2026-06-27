@@ -207,14 +207,14 @@ function Hero() {
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <a
-              href="https://github.com/tungtobe/apple_podcast_transcript/releases/latest/download/Transcriber-kun.dmg"
+              href="https://github.com/tungtobe/transcriber-kun-lp/releases/latest/download/Transcriber-kun.dmg"
               className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-glow)]"
               download
             >
               <DownloadIcon /> Tải cho macOS
             </a>
             <a
-              href="https://github.com/tungtobe/apple_podcast_transcript/releases/latest/download/Transcriber-kun_x64_en-US.msi.zip"
+              href="https://github.com/tungtobe/transcriber-kun-lp/releases/latest/download/Transcriber-kun_x64_en-US.msi.zip"
               className="inline-flex items-center gap-2 rounded-full border bg-card px-6 py-3.5 text-sm font-semibold hover:bg-secondary transition"
               download
             >
@@ -511,14 +511,14 @@ function CTA() {
         </p>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
           <a
-            href="https://github.com/tungtobe/apple_podcast_transcript/releases/latest/download/Transcriber-kun.dmg"
+            href="https://github.com/tungtobe/transcriber-kun-lp/releases/latest/download/Transcriber-kun.dmg"
             className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-4 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-glow)]"
             download
           >
             <DownloadIcon /> Tải cho macOS
           </a>
           <a
-            href="https://github.com/tungtobe/apple_podcast_transcript/releases/latest/download/Transcriber-kun_x64_en-US.msi.zip"
+            href="https://github.com/tungtobe/transcriber-kun-lp/releases/latest/download/Transcriber-kun_x64_en-US.msi.zip"
             className="inline-flex items-center gap-2 rounded-full border bg-card px-7 py-4 text-sm font-semibold hover:bg-secondary transition"
             download
           >
