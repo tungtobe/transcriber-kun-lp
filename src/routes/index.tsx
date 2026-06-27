@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import appIcon from "@/assets/app-icon.png.asset.json";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -144,6 +145,7 @@ function Landing() {
         <HowItWorks />
         <Privacy />
         <FAQ />
+        <Install />
         <CTA />
       </main>
       <Footer />
@@ -165,6 +167,7 @@ function Header() {
           <a href="#features" className="hover:text-foreground transition">Tính năng</a>
           <a href="#how" className="hover:text-foreground transition">Cách hoạt động</a>
           <a href="#privacy" className="hover:text-foreground transition">Bảo mật</a>
+          <a href="#install" className="hover:text-foreground transition">Cài đặt</a>
           <a href="#faq" className="hover:text-foreground transition">FAQ</a>
         </nav>
         <a
@@ -204,18 +207,19 @@ function Hero() {
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <a
-              href="#download"
+              href="https://github.com/tungtobe/apple_podcast_transcript/releases/latest/download/Transcriber-kun.dmg"
               className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3.5 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-glow)]"
+              download
             >
               <DownloadIcon /> Tải cho macOS
             </a>
             <a
-              href="#download"
+              href="https://github.com/tungtobe/apple_podcast_transcript/releases/latest/download/Transcriber-kun_x64_en-US.msi.zip"
               className="inline-flex items-center gap-2 rounded-full border bg-card px-6 py-3.5 text-sm font-semibold hover:bg-secondary transition"
+              download
             >
               <DownloadIcon /> Tải cho Windows
             </a>
-
           </div>
 
           <dl className="mt-12 grid grid-cols-3 gap-6 max-w-md">
@@ -507,23 +511,198 @@ function CTA() {
         </p>
         <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
           <a
-            href="#"
+            href="https://github.com/tungtobe/apple_podcast_transcript/releases/latest/download/Transcriber-kun.dmg"
             className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-4 text-sm font-semibold hover:opacity-90 transition shadow-[var(--shadow-glow)]"
+            download
           >
-            <DownloadIcon /> Tải cho macOS (Apple Silicon)
+            <DownloadIcon /> Tải cho macOS
           </a>
           <a
-            href="#"
+            href="https://github.com/tungtobe/apple_podcast_transcript/releases/latest/download/Transcriber-kun_x64_en-US.msi.zip"
             className="inline-flex items-center gap-2 rounded-full border bg-card px-7 py-4 text-sm font-semibold hover:bg-secondary transition"
+            download
           >
-            macOS Intel
+            <DownloadIcon /> Tải cho Windows
           </a>
         </div>
         <p className="mt-5 text-xs font-mono text-muted-foreground">
-          v1.0.0 · macOS 12+ · 480MB (kèm Whisper large-v3)
+          v1.0.0 · macOS 12+ · Windows 10+ · 480MB (kèm Whisper large-v3)
         </p>
       </div>
     </section>
+  );
+}
+
+function Install() {
+  return (
+    <section id="install" className="py-24 bg-surface border-y">
+      <div className="max-w-3xl mx-auto px-6">
+        <span className="font-mono text-xs uppercase tracking-widest text-primary">Cài đặt</span>
+        <h2 className="mt-3 text-4xl font-extrabold tracking-tight">Hướng dẫn cài đặt</h2>
+        <p className="mt-3 text-muted-foreground">
+          Cài đặt transcriber-kun trên macOS và Windows chỉ trong vài bước đơn giản.
+        </p>
+
+        {/* Security notice */}
+        <div className="mt-6 rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 flex gap-3">
+          <ShieldAlertIcon />
+          <div>
+            <p className="text-sm font-semibold text-foreground">Lưu ý quan trọng</p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Ứng dụng <strong>chưa được ký chứng chỉ bảo mật (code signing)</strong>, vì vậy hệ điều hành có thể hiển thị cảnh báo an toàn.
+              Đây là hành vi <strong>bình thường</strong> đối với các ứng dụng chưa phát hành chính thức.
+            </p>
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <Tabs defaultValue="macos" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 h-12">
+              <TabsTrigger value="macos" className="flex items-center gap-2 text-sm font-semibold">
+                <AppleIcon /> macOS
+              </TabsTrigger>
+              <TabsTrigger value="windows" className="flex items-center gap-2 text-sm font-semibold">
+                <WindowsIcon /> Windows
+              </TabsTrigger>
+            </TabsList>
+
+            {/* macOS Tab */}
+            <TabsContent value="macos" className="mt-6 space-y-4">
+              <InstallStep step={1} title="Tải file cài đặt">
+                <p className="text-sm text-muted-foreground">
+                  Tải file: <code className="rounded bg-muted px-2 py-0.5 text-xs font-mono text-foreground">Transcriber-kun.dmg</code>
+                </p>
+              </InstallStep>
+
+              <InstallStep step={2} title="Mở file DMG">
+                <ol className="space-y-1.5">
+                  <InstallStepItem>Double-click vào file <code className="rounded bg-muted px-2 py-0.5 text-xs font-mono text-foreground">Transcriber-kun.dmg</code></InstallStepItem>
+                  <InstallStepItem>Một cửa sổ cài đặt sẽ hiện ra</InstallStepItem>
+                  <InstallStepItem>Kéo biểu tượng <strong>Transcriber-kun.app</strong> vào thư mục <strong>Applications</strong></InstallStepItem>
+                </ol>
+              </InstallStep>
+
+              <InstallStep step={3} title="Cảnh báo bảo mật có thể gặp">
+                <div className="rounded-lg border border-border bg-muted/30 p-4 text-sm text-muted-foreground italic">
+                  "Transcriber-kun.app cannot be opened because it is from an unidentified developer"
+                </div>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Đây là cảnh báo mặc định do ứng dụng chưa được ký chứng chỉ bảo mật.
+                </p>
+              </InstallStep>
+
+              <InstallStep step={4} title="Cách cho phép mở ứng dụng">
+                <div className="space-y-5">
+                  <div>
+                    <h5 className="text-sm font-semibold text-foreground mb-2">
+                      <span className="inline-flex h-5 w-5 items-center justify-center rounded bg-primary/10 text-xs font-bold text-primary mr-2">1</span>
+                      Mở bằng chuột phải (đơn giản &amp; an toàn nhất)
+                    </h5>
+                    <ol className="space-y-1.5 ml-7">
+                      <InstallStepItem>Mở <strong>Applications</strong></InstallStepItem>
+                      <InstallStepItem>Chuột phải vào <strong>Transcriber-kun.app</strong></InstallStepItem>
+                      <InstallStepItem>Chọn <strong>Open</strong></InstallStepItem>
+                      <InstallStepItem>Khi hộp thoại cảnh báo hiện ra → chọn <strong>Open</strong></InstallStepItem>
+                    </ol>
+                    <p className="mt-2 ml-7 text-xs text-primary font-medium">
+                      ➡️ Sau thao tác này, ứng dụng sẽ mở bình thường ở các lần sau.
+                    </p>
+                  </div>
+
+                  <div className="border-t border-border" />
+
+                  <div>
+                    <h5 className="text-sm font-semibold text-foreground mb-2">
+                      <span className="inline-flex h-5 w-5 items-center justify-center rounded bg-primary/10 text-xs font-bold text-primary mr-2">2</span>
+                      Cho phép trong System Settings
+                    </h5>
+                    <ol className="space-y-1.5 ml-7">
+                      <InstallStepItem>Mở <strong>System Settings</strong></InstallStepItem>
+                      <InstallStepItem>Vào <strong>Privacy &amp; Security</strong></InstallStepItem>
+                      <InstallStepItem>Kéo xuống phần <strong>Security</strong></InstallStepItem>
+                      <InstallStepItem>Tại thông báo chặn ứng dụng → bấm <strong>Allow Anyway</strong></InstallStepItem>
+                      <InstallStepItem>Mở lại ứng dụng từ <strong>Applications</strong></InstallStepItem>
+                    </ol>
+                  </div>
+
+                  <div className="border-t border-border" />
+
+                  <div>
+                    <h5 className="text-sm font-semibold text-muted-foreground mb-2">
+                      Tuỳ chọn nâng cao (dành cho người dùng kỹ thuật)
+                    </h5>
+                    <p className="text-sm text-muted-foreground mb-2 ml-6">Mở Terminal và chạy lệnh:</p>
+                    <div className="ml-6 rounded-lg bg-[hsl(220,20%,12%)] p-4 overflow-x-auto">
+                      <code className="text-sm font-mono text-[hsl(140,60%,70%)]">
+                        xattr -rd com.apple.quarantine /Applications/Transcriber-kun.app
+                      </code>
+                    </div>
+                  </div>
+                </div>
+              </InstallStep>
+            </TabsContent>
+
+            {/* Windows Tab */}
+            <TabsContent value="windows" className="mt-6 space-y-4">
+              <InstallStep step={1} title="Tải file cài đặt">
+                <p className="text-sm text-muted-foreground">
+                  Tải file: <code className="rounded bg-muted px-2 py-0.5 text-xs font-mono text-foreground">Transcriber-kun_x64_en-US.msi.zip</code>
+                </p>
+                <p className="mt-1 text-xs text-muted-foreground">Giải nén file zip để lấy file <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-foreground">.msi</code> rồi chạy cài đặt.</p>
+              </InstallStep>
+
+              <InstallStep step={2} title="Cảnh báo bảo mật có thể gặp">
+                <div className="rounded-lg border border-border bg-muted/30 p-4 text-sm text-muted-foreground italic">
+                  "Windows protected your PC"
+                </div>
+              </InstallStep>
+
+              <InstallStep step={3} title="Cách cho phép cài đặt">
+                <ol className="space-y-1.5">
+                  <InstallStepItem>Click <strong>More info</strong></InstallStepItem>
+                  <InstallStepItem>Click <strong>Run anyway</strong></InstallStepItem>
+                  <InstallStepItem>Tiếp tục quá trình cài đặt như bình thường</InstallStepItem>
+                </ol>
+              </InstallStep>
+
+              <InstallStep step={4} title="Trường hợp bị chặn tải trên trình duyệt">
+                <p className="text-sm text-muted-foreground mb-2">
+                  Chrome / Edge có thể hiển thị cảnh báo khi tải file.
+                </p>
+                <ol className="space-y-1.5">
+                  <InstallStepItem>Chọn <strong>Keep</strong> hoặc <strong>Keep anyway</strong> để tiếp tục tải</InstallStepItem>
+                </ol>
+              </InstallStep>
+            </TabsContent>
+          </Tabs>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function InstallStep({ step, title, children }: { step: number; title: string; children: ReactNode }) {
+  return (
+    <div className="rounded-xl border border-border bg-card p-6 hover:shadow-md transition-shadow">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary font-bold text-sm">
+          {step}
+        </div>
+        <h4 className="font-semibold text-card-foreground">{title}</h4>
+      </div>
+      <div className="ml-12">{children}</div>
+    </div>
+  );
+}
+
+function InstallStepItem({ children }: { children: ReactNode }) {
+  return (
+    <li className="flex items-start gap-2 text-sm text-muted-foreground">
+      <svg className="mt-0.5 h-4 w-4 shrink-0 text-primary/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m9 18 6-6-6-6" />
+      </svg>
+      <span>{children}</span>
+    </li>
   );
 }
 
@@ -571,6 +750,27 @@ function GlobeIcon() {
 }
 function BoltIcon() {
   return (<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>);
+}
+function ShieldAlertIcon() {
+  return (
+    <svg className="mt-0.5 h-5 w-5 shrink-0 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v4"/><path d="M12 16h.01"/>
+    </svg>
+  );
+}
+function AppleIcon() {
+  return (
+    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.15-2.18 1.27-2.16 3.8.03 3.02 2.65 4.03 2.68 4.04l-.07.28zM13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+    </svg>
+  );
+}
+function WindowsIcon() {
+  return (
+    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M3 12V6.75l6-1.032V12H3zm0 .75h6v6.282L3 17.998V12.75zm7 .75v6.6l10 1.65V13.5H10zm0-8.1V12h10V2.7L10 5.4z"/>
+    </svg>
+  );
 }
 function CheckIcon() {
   return (
