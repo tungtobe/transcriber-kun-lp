@@ -189,7 +189,7 @@ function Hero() {
         <div>
           <span className="inline-flex items-center gap-2 rounded-full border bg-card px-3 py-1.5 text-xs font-mono text-muted-foreground">
             <span className="size-1.5 rounded-full bg-[oklch(0.65_0.2_140)]" />
-            v1.0 · macOS · Whisper local
+            Whisper local・ 60+ ngôn ngữ
           </span>
           <h1 className="mt-5 text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.02] tracking-tight text-balance">
             Bắt từng <span className="relative inline-block">
@@ -200,7 +200,7 @@ function Hero() {
             tạo memo họp <em className="not-italic text-primary">tức thì</em>.
           </h1>
           <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
-            transcriber-kun ghi lại trực tiếp âm thanh máy tính khi bạn họp với khách —
+            Transcriberくん ghi lại trực tiếp âm thanh máy tính khi bạn họp với khách —
             Meet, Teams, Zoom hay offline — rồi tạo 議事録 chỉ trong vài giây.
             Toàn bộ chạy bằng <strong className="text-foreground">Whisper local</strong>, không upload dữ liệu.
           </p>
@@ -526,7 +526,7 @@ function CTA() {
           </a>
         </div>
         <p className="mt-5 text-xs font-mono text-muted-foreground">
-          v1.0.0 · macOS 12+ · Windows 10+ · 480MB (kèm Whisper large-v3)
+          macOS 12+ · Windows 10+ · 480MB (kèm Whisper large)
         </p>
       </div>
     </section>
