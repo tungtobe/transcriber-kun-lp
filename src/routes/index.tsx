@@ -294,10 +294,11 @@ function Features() {
     },
     {
       icon: <LockIcon />,
-      title: "100% offline, Whisper local",
-      desc: "Mô hình chạy hoàn toàn trên máy bạn. Không upload, không cloud, không log — phù hợp dữ liệu khách hàng nhạy cảm.",
-      tag: "Privacy",
+      title: "Tuỳ chọn chạy offline với Whisper local",
+      desc: "Bật chế độ offline khi cần — mô hình Whisper chạy hoàn toàn trên máy bạn, không upload, không cloud. Phù hợp dữ liệu khách hàng nhạy cảm.",
+      tag: "Optional offline",
     },
+
     {
       icon: <FileIcon />,
       title: "Memo & 議事録 tự động",
