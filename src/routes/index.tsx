@@ -144,8 +144,8 @@ function Landing() {
         <Features />
         <HowItWorks />
         <Privacy />
-        <FAQ />
         <Install />
+        <FAQ />
         <CTA />
       </main>
       <Footer />
