@@ -316,12 +316,8 @@ function Features() {
       desc: "Nhận diện tiếng Việt, English, 日本語 trong cùng câu. Tốt cho cuộc họp song ngữ với khách Nhật / global.",
       tag: "60+ langs",
     },
-    {
-      icon: <BoltIcon />,
-      title: "Tăng tốc Metal / CUDA",
-      desc: "Chạy mượt trên Apple Silicon (Metal) và GPU NVIDIA. Transcript một buổi họp 1 tiếng chỉ mất vài phút.",
-      tag: "Fast",
-    },
+
+
   ];
   return (
     <section id="features" className="py-24">
