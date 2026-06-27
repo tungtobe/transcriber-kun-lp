@@ -6,13 +6,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "transcriber-kun — Transcript live & ghi memo họp offline" },
+      { title: "Transcriberくん — Transcript live & ghi memo họp offline" },
       {
         name: "description",
         content:
           "Transcript trực tiếp từ âm thanh máy tính, ghi 議事録 buổi họp và chạy Whisper AI offline để bảo mật tuyệt đối dữ liệu.",
       },
-      { property: "og:title", content: "transcriber-kun — Trợ thủ ghi memo họp" },
+      { property: "og:title", content: "Transcriberくん — Trợ thủ ghi memo họp" },
       {
         property: "og:description",
         content:
@@ -160,7 +160,7 @@ function Header() {
         <a href="#" className="flex items-center gap-2.5">
           <img src={appIcon.url} alt="" className="size-9 rounded-xl shadow-sm" />
           <span className="font-display font-extrabold tracking-tight text-lg">
-            transcriber<span className="text-primary">-kun</span>
+            Transcriber<span className="text-primary">くん</span>
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
