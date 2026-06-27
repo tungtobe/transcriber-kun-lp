@@ -409,18 +409,27 @@ function Privacy() {
           <div className="relative grid md:grid-cols-[1.2fr_1fr] gap-10 items-start">
             <div>
               <span className="font-mono text-xs uppercase tracking-widest text-accent">
-                Bảo mật là mặc định
+                Bảo mật là mặc định · Chế độ offline
               </span>
               <h2 className="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight text-balance">
-                Audio của khách hàng không bao giờ rời khỏi máy bạn.
+                File ghi âm của khách hàng không bao giờ rời khỏi máy bạn.
               </h2>
               <p className="mt-5 text-primary-foreground/80 leading-relaxed">
-                transcriber-kun chạy Whisper hoàn toàn local. Không server, không telemetry,
-                không API key. Bạn có thể rút mạng và app vẫn hoạt động — kiểm chứng được bằng
-                Little Snitch / Lulu.
+                Khi transcript <strong className="text-accent">file offline</strong> (video họp đã ghi,
+                audio export từ Meet / Teams / Zoom), transcriber-kun chạy Whisper hoàn toàn local.
+                Không server, không telemetry, không API key — rút mạng app vẫn hoạt động,
+                kiểm chứng được bằng Little Snitch / Lulu.
+              </p>
+              <p className="mt-4 text-sm text-primary-foreground/60 leading-relaxed">
+                * Chế độ <strong className="text-primary-foreground/90">live transcript</strong> dùng
+                engine streaming riêng để đảm bảo độ trễ thấp, không áp dụng các cam kết offline
+                bên dưới. Bạn có thể chọn engine local hoặc cloud tuỳ buổi họp.
               </p>
             </div>
             <ul className="space-y-3">
+              <li className="text-xs font-mono uppercase tracking-widest text-accent/80 pb-1">
+                Áp dụng cho transcript file offline
+              </li>
               {[
                 "Không gửi audio lên cloud",
                 "Không lưu transcript trên server",
@@ -433,6 +442,7 @@ function Privacy() {
                 </li>
               ))}
             </ul>
+
           </div>
         </div>
       </div>
