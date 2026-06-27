@@ -210,11 +210,12 @@ function Hero() {
               <DownloadIcon /> Tải cho macOS
             </a>
             <a
-              href="#how"
+              href="#download"
               className="inline-flex items-center gap-2 rounded-full border bg-card px-6 py-3.5 text-sm font-semibold hover:bg-secondary transition"
             >
-              Xem cách hoạt động
+              <DownloadIcon /> Tải cho Windows
             </a>
+
           </div>
 
           <dl className="mt-12 grid grid-cols-3 gap-6 max-w-md">
