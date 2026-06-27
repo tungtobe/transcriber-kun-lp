@@ -456,23 +456,23 @@ function FAQ() {
   const qa = [
     {
       q: "App có thực sự chạy offline không?",
-      a: "Có. Mô hình Whisper được đóng gói sẵn, sau lần tải đầu tiên bạn có thể rút mạng hoàn toàn. Không có endpoint nào được gọi trong runtime.",
+      a: "Có. Mô hình Whisper được đóng gói sẵn, sau lần tải đầu tiên bạn có thể rút mạng hoàn toàn. Không có endpoint nào được gọi trong runtime khi transcribe. Nhớ setting trong cài đặt là 'Local' để đảm bảo.",
     },
     {
-      q: "Hỗ trợ Windows / Linux không?",
-      a: "Bản v1.0 ưu tiên macOS (Apple Silicon & Intel). Windows đang trong roadmap Q4 — đăng ký email để được báo khi mở beta.",
+      q: "Hỗ trợ Windows không?",
+      a: "Có. Nhưng ko chắc là chạy ổn được trên mọi cấu hình. Mình chỉ test trên mac thôi.",
     },
     {
       q: "Có capture được audio của Google Meet / Teams không?",
       a: "Có. App dùng audio loopback ở mức hệ thống nên capture mọi nguồn — không cần cài plugin riêng cho từng nền tảng.",
     },
     {
-      q: "Transcript tiếng Việt có chính xác không?",
-      a: "Whisper large-v3 đạt WER ~6-9% cho tiếng Việt trong môi trường họp. Bạn có thể thêm custom vocab (tên công ty, thuật ngữ) để tăng độ chính xác.",
+      q: "Transcript tiếng Việt, Nhật có chính xác không?",
+      a: "Nếu chạy local, chọn Whisper large thì chính xác hơn nhưng sẽ nặng và lâu hơn. Nếu chạy online với Gemini, accuracy sẽ cao hơn nhưng cần setup API key trước.",
     },
     {
       q: "Có miễn phí không?",
-      a: "Có bản free dùng vô thời hạn cho meeting <30 phút. Bản Pro mở khoá meeting dài, AI summary và export Notion/Docs.",
+      a: "Free dùng vô thời hạn cho anh chị em thiện lành.",
     },
   ];
   return (
