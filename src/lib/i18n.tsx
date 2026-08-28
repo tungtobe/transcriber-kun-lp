@@ -25,6 +25,7 @@ const vi = {
     desc: "Transcriberくん ghi lại trực tiếp âm thanh máy tính khi bạn họp với khách — Meet, Teams, Zoom hay offline — rồi tạo 議事録 chỉ trong vài giây. Toàn bộ chạy bằng **Whisper local**, không upload dữ liệu.",
     downloadMac: "Tải cho macOS",
     downloadWin: "Tải cho Windows",
+    downloadLinux: "Tải cho Ubuntu",
     stats: [
       { k: "100%", v: "Offline & riêng tư" },
       { k: "<2s", v: "Độ trễ live" },
@@ -125,7 +126,7 @@ const vi = {
   install: {
     kicker: "Cài đặt",
     title: "Hướng dẫn cài đặt",
-    desc: "Cài đặt transcriber-kun trên macOS và Windows chỉ trong vài bước đơn giản.",
+    desc: "Cài đặt transcriber-kun trên macOS, Windows và Ubuntu chỉ trong vài bước đơn giản.",
     noticeTitle: "Lưu ý quan trọng",
     noticeBody:
       "Ứng dụng **chưa được ký chứng chỉ bảo mật (code signing)**, vì vậy hệ điều hành có thể hiển thị cảnh báo an toàn. Đây là hành vi **bình thường** đối với các ứng dụng chưa phát hành chính thức.",
@@ -178,6 +179,35 @@ const vi = {
       step4Desc: "Chrome / Edge có thể hiển thị cảnh báo khi tải file.",
       step4Items: ["Chọn **Keep** hoặc **Keep anyway** để tiếp tục tải"],
     },
+    linux: {
+      limitTitle: "Bản Linux hiện chỉ ghi từ micro",
+      limitBody:
+        "Trên Linux app **chưa capture được âm thanh hệ thống**, nên không lấy trực tiếp được tiếng từ Meet / Teams / Zoom. Bạn vẫn transcribe được từ **micro** và từ **file audio/video** có sẵn. Tính năng thu âm thanh hệ thống hiện chỉ có trên macOS và Windows.",
+      step1Title: "Tải file cài đặt",
+      step1Body: "Tải file: `Transcriber-kun_amd64.deb` (Ubuntu / Debian, 64-bit)",
+      step1Note:
+        "Distro khác dùng bản `Transcriber-kun_amd64.AppImage` — chạy được trên hầu hết bản Linux 64-bit mà không cần cài đặt.",
+      step2Title: "Cài gói .deb",
+      step2Items: [
+        "Double-click file `.deb` để mở bằng **App Center**, rồi bấm **Install**",
+        "Hoặc chạy trong Terminal: `sudo apt install ./Transcriber-kun_amd64.deb`",
+        "Mở **Transcriber-kun** từ menu ứng dụng như bình thường",
+      ],
+      step3Title: "Hoặc chạy bản AppImage",
+      step3Desc: "Không cần cài đặt, phù hợp với Fedora, Arch, openSUSE và các distro khác.",
+      step3Cta: "Tải AppImage",
+      step3Items: [
+        "Cấp quyền chạy: `chmod +x Transcriber-kun_amd64.AppImage`",
+        "Chạy trực tiếp: `./Transcriber-kun_amd64.AppImage`",
+      ],
+      step4Title: "Cài ffmpeg",
+      step4Desc:
+        "App cần ffmpeg để xử lý audio/video. Lần đầu mở, màn hình setup sẽ báo nếu máy chưa có.",
+      step4Items: [
+        "Bấm **Install ffmpeg** trong màn hình setup, rồi nhập mật khẩu khi hệ thống hỏi",
+        "Hoặc cài tay: `sudo apt install ffmpeg`",
+      ],
+    },
   },
   faq: {
     kicker: "FAQ",
@@ -208,7 +238,7 @@ const vi = {
   cta: {
     title: "Sẵn sàng không bỏ lỡ keyword nào nữa?",
     desc: "Tải transcriber-kun, dùng miễn phí cho buổi họp đầu tiên — không cần đăng ký.",
-    sysreq: "macOS 12+ · Windows 10+ · 480MB (kèm Whisper large)",
+    sysreq: "macOS 12+ · Windows 10+ · Ubuntu 22.04+ · 480MB (kèm Whisper large)",
   },
   footer: {
     privacy: "Privacy",
@@ -240,6 +270,7 @@ const ja: Dict = {
     desc: "Transcriberくんは、Meet・Teams・Zoom・対面を問わず、商談中のPC音声をそのまま文字起こしし、数秒で議事録を作成します。すべて**ローカルのWhisper**で動作し、データは一切アップロードされません。",
     downloadMac: "macOS版をダウンロード",
     downloadWin: "Windows版をダウンロード",
+    downloadLinux: "Ubuntu版をダウンロード",
     stats: [
       { k: "100%", v: "オフライン&プライベート" },
       { k: "<2s", v: "ライブ遅延" },
@@ -340,7 +371,7 @@ const ja: Dict = {
   install: {
     kicker: "インストール",
     title: "インストールガイド",
-    desc: "macOSとWindowsへのインストールは、数ステップで完了します。",
+    desc: "macOS・Windows・Ubuntuへのインストールは、数ステップで完了します。",
     noticeTitle: "重要なお知らせ",
     noticeBody:
       "本アプリは**コード署名(code signing)されていない**ため、OSがセキュリティ警告を表示することがあります。正式リリース前のアプリでは**通常**の動作です。",
@@ -393,6 +424,36 @@ const ja: Dict = {
       step4Desc: "Chrome / Edgeがダウンロード時に警告を表示することがあります。",
       step4Items: ["**Keep**または**Keep anyway**を選択してダウンロードを続行"],
     },
+    linux: {
+      limitTitle: "Linux版はマイク入力のみ対応",
+      limitBody:
+        "Linux版は**システム音声の取り込みに未対応**のため、Meet / Teams / Zoom の音声を直接取得できません。**マイク**からの文字起こしと、**音声・動画ファイル**の文字起こしはご利用いただけます。システム音声の録音は現在 macOS と Windows のみの対応です。",
+      step1Title: "インストーラーをダウンロード",
+      step1Body: "ファイルをダウンロード: `Transcriber-kun_amd64.deb`(Ubuntu / Debian、64-bit)",
+      step1Note:
+        "他のディストリビューションでは `Transcriber-kun_amd64.AppImage` をご利用ください。インストール不要で、ほとんどの64-bit Linuxで動作します。",
+      step2Title: ".deb パッケージをインストール",
+      step2Items: [
+        "`.deb`ファイルをダブルクリックして**App Center**で開き、**Install**をクリック",
+        "またはターミナルで実行: `sudo apt install ./Transcriber-kun_amd64.deb`",
+        "アプリメニューから**Transcriber-kun**を通常どおり起動",
+      ],
+      step3Title: "AppImage で実行する場合",
+      step3Desc:
+        "インストール不要です。Fedora、Arch、openSUSE などのディストリビューションに適しています。",
+      step3Cta: "AppImageをダウンロード",
+      step3Items: [
+        "実行権限を付与: `chmod +x Transcriber-kun_amd64.AppImage`",
+        "そのまま実行: `./Transcriber-kun_amd64.AppImage`",
+      ],
+      step4Title: "ffmpeg をインストール",
+      step4Desc:
+        "音声・動画の処理に ffmpeg が必要です。未インストールの場合は初回起動時のセットアップ画面でお知らせします。",
+      step4Items: [
+        "セットアップ画面の**Install ffmpeg**をクリックし、表示されたらパスワードを入力",
+        "または手動でインストール: `sudo apt install ffmpeg`",
+      ],
+    },
   },
   faq: {
     kicker: "FAQ",
@@ -423,7 +484,7 @@ const ja: Dict = {
   cta: {
     title: "もうキーワードを聞き逃さない準備はできましたか?",
     desc: "transcriber-kunをダウンロード。最初の会議から無料で使えます——登録不要。",
-    sysreq: "macOS 12+ · Windows 10+ · 480MB(Whisper large同梱)",
+    sysreq: "macOS 12+ · Windows 10+ · Ubuntu 22.04+ · 480MB(Whisper large同梱)",
   },
   footer: {
     privacy: "プライバシー",

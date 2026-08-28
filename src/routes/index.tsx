@@ -287,6 +287,13 @@ function Hero() {
             >
               <DownloadIcon /> {t.hero.downloadWin}
             </a>
+            <a
+              href="https://github.com/tungtobe/transcriber-kun-lp/releases/latest/download/Transcriber-kun_amd64.deb"
+              className="inline-flex items-center gap-2 rounded-full border bg-card px-6 py-3.5 text-sm font-semibold hover:bg-secondary transition"
+              download
+            >
+              <DownloadIcon /> {t.hero.downloadLinux}
+            </a>
           </div>
 
           <dl className="mt-12 grid grid-cols-3 gap-6 max-w-md">
@@ -566,6 +573,13 @@ function CTA() {
           >
             <DownloadIcon /> {t.hero.downloadWin}
           </a>
+          <a
+            href="https://github.com/tungtobe/transcriber-kun-lp/releases/latest/download/Transcriber-kun_amd64.deb"
+            className="inline-flex items-center gap-2 rounded-full border bg-card px-7 py-4 text-sm font-semibold hover:bg-secondary transition"
+            download
+          >
+            <DownloadIcon /> {t.hero.downloadLinux}
+          </a>
         </div>
         <p className="mt-5 text-xs font-mono text-muted-foreground">{t.cta.sysreq}</p>
       </div>
@@ -577,6 +591,7 @@ function Install() {
   const { t } = useI18n();
   const m = t.install.macos;
   const w = t.install.windows;
+  const l = t.install.linux;
   return (
     <section id="install" className="py-24 bg-surface border-y">
       <div className="max-w-3xl mx-auto px-6">
@@ -599,7 +614,7 @@ function Install() {
 
         <div className="mt-8">
           <Tabs defaultValue="macos" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 h-12">
+            <TabsList className="grid w-full grid-cols-3 h-12">
               <TabsTrigger value="macos" className="flex items-center gap-2 text-sm font-semibold">
                 <AppleIcon /> macOS
               </TabsTrigger>
@@ -608,6 +623,9 @@ function Install() {
                 className="flex items-center gap-2 text-sm font-semibold"
               >
                 <WindowsIcon /> Windows
+              </TabsTrigger>
+              <TabsTrigger value="linux" className="flex items-center gap-2 text-sm font-semibold">
+                <UbuntuIcon /> Ubuntu
               </TabsTrigger>
             </TabsList>
 
@@ -724,6 +742,72 @@ function Install() {
                 <p className="text-sm text-muted-foreground mb-2">{w.step4Desc}</p>
                 <ol className="space-y-1.5">
                   {w.step4Items.map((item) => (
+                    <InstallStepItem key={item}>
+                      <Rich text={item} strongClass="font-semibold text-foreground" />
+                    </InstallStepItem>
+                  ))}
+                </ol>
+              </InstallStep>
+            </TabsContent>
+
+            {/* Ubuntu / Linux Tab */}
+            <TabsContent value="linux" className="mt-6 space-y-4">
+              {/* Linux cannot capture system audio yet, and that is the app's headline
+                  feature — say so before the download steps, not after. */}
+              <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 flex gap-3">
+                <ShieldAlertIcon />
+                <div>
+                  <p className="text-sm font-semibold text-foreground">{l.limitTitle}</p>
+                  <p className="mt-1 text-sm text-muted-foreground">
+                    <Rich text={l.limitBody} strongClass="font-semibold" />
+                  </p>
+                </div>
+              </div>
+
+              <InstallStep step={1} title={l.step1Title}>
+                <p className="text-sm text-muted-foreground">
+                  <Rich text={l.step1Body} />
+                </p>
+                <p className="mt-1 text-xs text-muted-foreground">
+                  <Rich
+                    text={l.step1Note}
+                    codeClass="rounded bg-muted px-1.5 py-0.5 font-mono text-foreground"
+                  />
+                </p>
+              </InstallStep>
+
+              <InstallStep step={2} title={l.step2Title}>
+                <ol className="space-y-1.5">
+                  {l.step2Items.map((item) => (
+                    <InstallStepItem key={item}>
+                      <Rich text={item} strongClass="font-semibold text-foreground" />
+                    </InstallStepItem>
+                  ))}
+                </ol>
+              </InstallStep>
+
+              <InstallStep step={3} title={l.step3Title}>
+                <p className="text-sm text-muted-foreground mb-2">{l.step3Desc}</p>
+                <ol className="space-y-1.5">
+                  {l.step3Items.map((item) => (
+                    <InstallStepItem key={item}>
+                      <Rich text={item} strongClass="font-semibold text-foreground" />
+                    </InstallStepItem>
+                  ))}
+                </ol>
+                <a
+                  href="https://github.com/tungtobe/transcriber-kun-lp/releases/latest/download/Transcriber-kun_amd64.AppImage"
+                  className="mt-3 inline-flex items-center gap-2 rounded-full border bg-card px-4 py-2 text-xs font-semibold hover:bg-secondary transition"
+                  download
+                >
+                  <DownloadIcon /> {l.step3Cta}
+                </a>
+              </InstallStep>
+
+              <InstallStep step={4} title={l.step4Title}>
+                <p className="text-sm text-muted-foreground mb-2">{l.step4Desc}</p>
+                <ol className="space-y-1.5">
+                  {l.step4Items.map((item) => (
                     <InstallStepItem key={item}>
                       <Rich text={item} strongClass="font-semibold text-foreground" />
                     </InstallStepItem>
@@ -939,6 +1023,13 @@ function WindowsIcon() {
   return (
     <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
       <path d="M3 12V6.75l6-1.032V12H3zm0 .75h6v6.282L3 17.998V12.75zm7 .75v6.6l10 1.65V13.5H10zm0-8.1V12h10V2.7L10 5.4z" />
+    </svg>
+  );
+}
+function UbuntuIcon() {
+  return (
+    <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.61.455a3.41 3.41 0 0 0-3.41 3.41 3.41 3.41 0 0 0 3.41 3.41 3.41 3.41 0 0 0 3.41-3.41 3.41 3.41 0 0 0-3.41-3.41zM12.92.8C8.923.777 5.137 2.941 3.148 6.451a4.5 4.5 0 0 1 .26-.007 4.92 4.92 0 0 1 2.585.737A8.316 8.316 0 0 1 12.688 3.6 4.944 4.944 0 0 1 13.723.834 11.008 11.008 0 0 0 12.92.8zm9.226 4.994a4.915 4.915 0 0 1-1.918 2.246 8.36 8.36 0 0 1-.273 8.303 4.89 4.89 0 0 1 1.632 2.54 11.156 11.156 0 0 0 .559-13.089zM3.41 7.932A3.41 3.41 0 0 0 0 11.342a3.41 3.41 0 0 0 3.41 3.409 3.41 3.41 0 0 0 3.41-3.41 3.41 3.41 0 0 0-3.41-3.41zm2.027 7.866a4.908 4.908 0 0 1-2.915.358 11.1 11.1 0 0 0 7.991 6.698 11.234 11.234 0 0 0 2.422.249 4.879 4.879 0 0 1-.999-2.85 8.484 8.484 0 0 1-.836-.136 8.304 8.304 0 0 1-5.663-4.32zm11.405.928a3.41 3.41 0 0 0-3.41 3.41 3.41 3.41 0 0 0 3.41 3.41 3.41 3.41 0 0 0 3.41-3.41 3.41 3.41 0 0 0-3.41-3.41z" />
     </svg>
   );
 }
