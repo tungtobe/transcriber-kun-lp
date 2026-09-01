@@ -752,18 +752,6 @@ function Install() {
 
             {/* Ubuntu / Linux Tab */}
             <TabsContent value="linux" className="mt-6 space-y-4">
-              {/* Linux cannot capture system audio yet, and that is the app's headline
-                  feature — say so before the download steps, not after. */}
-              <div className="rounded-xl border border-amber-500/30 bg-amber-500/5 p-4 flex gap-3">
-                <ShieldAlertIcon />
-                <div>
-                  <p className="text-sm font-semibold text-foreground">{l.limitTitle}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">
-                    <Rich text={l.limitBody} strongClass="font-semibold" />
-                  </p>
-                </div>
-              </div>
-
               <InstallStep step={1} title={l.step1Title}>
                 <p className="text-sm text-muted-foreground">
                   <Rich text={l.step1Body} />
@@ -790,24 +778,6 @@ function Install() {
                 <p className="text-sm text-muted-foreground mb-2">{l.step3Desc}</p>
                 <ol className="space-y-1.5">
                   {l.step3Items.map((item) => (
-                    <InstallStepItem key={item}>
-                      <Rich text={item} strongClass="font-semibold text-foreground" />
-                    </InstallStepItem>
-                  ))}
-                </ol>
-                <a
-                  href="https://github.com/tungtobe/transcriber-kun-lp/releases/latest/download/Transcriber-kun_amd64.AppImage"
-                  className="mt-3 inline-flex items-center gap-2 rounded-full border bg-card px-4 py-2 text-xs font-semibold hover:bg-secondary transition"
-                  download
-                >
-                  <DownloadIcon /> {l.step3Cta}
-                </a>
-              </InstallStep>
-
-              <InstallStep step={4} title={l.step4Title}>
-                <p className="text-sm text-muted-foreground mb-2">{l.step4Desc}</p>
-                <ol className="space-y-1.5">
-                  {l.step4Items.map((item) => (
                     <InstallStepItem key={item}>
                       <Rich text={item} strongClass="font-semibold text-foreground" />
                     </InstallStepItem>

@@ -180,30 +180,20 @@ const vi = {
       step4Items: ["Chọn **Keep** hoặc **Keep anyway** để tiếp tục tải"],
     },
     linux: {
-      limitTitle: "Bản Linux hiện chỉ ghi từ micro",
-      limitBody:
-        "Trên Linux app **chưa capture được âm thanh hệ thống**, nên không lấy trực tiếp được tiếng từ Meet / Teams / Zoom. Bạn vẫn transcribe được từ **micro** và từ **file audio/video** có sẵn. Tính năng thu âm thanh hệ thống hiện chỉ có trên macOS và Windows.",
       step1Title: "Tải file cài đặt",
       step1Body: "Tải file: `Transcriber-kun_amd64.deb` (Ubuntu / Debian, 64-bit)",
       step1Note:
-        "Distro khác dùng bản `Transcriber-kun_amd64.AppImage` — chạy được trên hầu hết bản Linux 64-bit mà không cần cài đặt.",
+        "Bản Linux hiện chỉ hỗ trợ Ubuntu / Debian 64-bit. Các distro khác chưa có gói cài sẵn.",
       step2Title: "Cài gói .deb",
       step2Items: [
         "Double-click file `.deb` để mở bằng **App Center**, rồi bấm **Install**",
         "Hoặc chạy trong Terminal: `sudo apt install ./Transcriber-kun_amd64.deb`",
         "Mở **Transcriber-kun** từ menu ứng dụng như bình thường",
       ],
-      step3Title: "Hoặc chạy bản AppImage",
-      step3Desc: "Không cần cài đặt, phù hợp với Fedora, Arch, openSUSE và các distro khác.",
-      step3Cta: "Tải AppImage",
-      step3Items: [
-        "Cấp quyền chạy: `chmod +x Transcriber-kun_amd64.AppImage`",
-        "Chạy trực tiếp: `./Transcriber-kun_amd64.AppImage`",
-      ],
-      step4Title: "Cài ffmpeg",
-      step4Desc:
+      step3Title: "Cài ffmpeg",
+      step3Desc:
         "App cần ffmpeg để xử lý audio/video. Lần đầu mở, màn hình setup sẽ báo nếu máy chưa có.",
-      step4Items: [
+      step3Items: [
         "Bấm **Install ffmpeg** trong màn hình setup, rồi nhập mật khẩu khi hệ thống hỏi",
         "Hoặc cài tay: `sudo apt install ffmpeg`",
       ],
@@ -218,12 +208,12 @@ const vi = {
         a: "Có. Mô hình Whisper được đóng gói sẵn, sau lần tải đầu tiên bạn có thể rút mạng hoàn toàn. Không có endpoint nào được gọi trong runtime khi transcribe. Nhớ setting trong cài đặt là 'Local' để đảm bảo.",
       },
       {
-        q: "Hỗ trợ Windows không?",
-        a: "Có. Nhưng ko chắc là chạy ổn được trên mọi cấu hình. Mình chỉ test trên mac thôi.",
+        q: "Hỗ trợ Windows, Ubuntu không?",
+        a: "Có cả hai, đầy đủ tính năng như bản mac. Nhưng ko chắc là chạy ổn được trên mọi cấu hình — mình test kỹ nhất trên mac.",
       },
       {
         q: "Có capture được audio của Google Meet / Teams không?",
-        a: "Có. App dùng audio loopback ở mức hệ thống nên capture mọi nguồn — không cần cài plugin riêng cho từng nền tảng.",
+        a: "Có, trên cả macOS, Windows và Ubuntu. App thu âm thanh ở mức hệ thống nên capture mọi nguồn — không cần cài plugin riêng cho từng nền tảng.",
       },
       {
         q: "Transcript tiếng Việt, Nhật có chính xác không?",
@@ -425,31 +415,20 @@ const ja: Dict = {
       step4Items: ["**Keep**または**Keep anyway**を選択してダウンロードを続行"],
     },
     linux: {
-      limitTitle: "Linux版はマイク入力のみ対応",
-      limitBody:
-        "Linux版は**システム音声の取り込みに未対応**のため、Meet / Teams / Zoom の音声を直接取得できません。**マイク**からの文字起こしと、**音声・動画ファイル**の文字起こしはご利用いただけます。システム音声の録音は現在 macOS と Windows のみの対応です。",
       step1Title: "インストーラーをダウンロード",
       step1Body: "ファイルをダウンロード: `Transcriber-kun_amd64.deb`(Ubuntu / Debian、64-bit)",
       step1Note:
-        "他のディストリビューションでは `Transcriber-kun_amd64.AppImage` をご利用ください。インストール不要で、ほとんどの64-bit Linuxで動作します。",
+        "Linux版は現在 Ubuntu / Debian(64-bit)のみ対応しています。他のディストリビューション向けのパッケージはまだありません。",
       step2Title: ".deb パッケージをインストール",
       step2Items: [
         "`.deb`ファイルをダブルクリックして**App Center**で開き、**Install**をクリック",
         "またはターミナルで実行: `sudo apt install ./Transcriber-kun_amd64.deb`",
         "アプリメニューから**Transcriber-kun**を通常どおり起動",
       ],
-      step3Title: "AppImage で実行する場合",
+      step3Title: "ffmpeg をインストール",
       step3Desc:
-        "インストール不要です。Fedora、Arch、openSUSE などのディストリビューションに適しています。",
-      step3Cta: "AppImageをダウンロード",
-      step3Items: [
-        "実行権限を付与: `chmod +x Transcriber-kun_amd64.AppImage`",
-        "そのまま実行: `./Transcriber-kun_amd64.AppImage`",
-      ],
-      step4Title: "ffmpeg をインストール",
-      step4Desc:
         "音声・動画の処理に ffmpeg が必要です。未インストールの場合は初回起動時のセットアップ画面でお知らせします。",
-      step4Items: [
+      step3Items: [
         "セットアップ画面の**Install ffmpeg**をクリックし、表示されたらパスワードを入力",
         "または手動でインストール: `sudo apt install ffmpeg`",
       ],
@@ -464,12 +443,12 @@ const ja: Dict = {
         a: "はい。Whisperモデルは同梱されており、初回ダウンロード後は完全にネットを切って使えます。文字起こし中に外部エンドポイントへの通信は一切ありません。設定が「Local」になっていることをご確認ください。",
       },
       {
-        q: "Windowsに対応していますか?",
-        a: "はい。ただし、すべての環境で安定動作する保証はありません。開発者はMacでのみテストしています。",
+        q: "WindowsやUbuntuに対応していますか?",
+        a: "どちらもMac版と同等の機能で対応しています。ただし、すべての環境で安定動作する保証はありません。開発者はMacで最も入念にテストしています。",
       },
       {
         q: "Google Meet / Teamsの音声もキャプチャできますか?",
-        a: "はい。システムレベルのオーディオループバックを使用するため、あらゆる音源をキャプチャできます。プラットフォームごとのプラグインは不要です。",
+        a: "macOS・Windows・Ubuntu のいずれでも可能です。システムレベルで音声を取り込むため、あらゆる音源をキャプチャでき、プラットフォームごとのプラグインは不要です。",
       },
       {
         q: "ベトナム語や日本語の文字起こし精度は?",
