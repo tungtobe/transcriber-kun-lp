@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-04T00:00:00Z",
+  "minAppVersion": "2.1.0",
+  "settings": {
+    "geminiModel": "gemini-flash-lite-latest",
+    "whisperModelSize": "small",
+    "liveGeminiModel": "gemini-3.5-live-translate-preview",
+    "copilotRadarModel": "gemini-3.1-flash-lite",
+    "copilotSniperModel": "gemini-flash-lite-latest"
+  },
+  "notes": {
+    "vi": "Đây là cấu hình mô hình AI được đề xuất mới nhất cho Transcriber-kun.",
+    "en": "These are the latest recommended AI model settings for Transcriber-kun.",
+    "ja": "Transcriber-kun 向けの最新のおすすめ AI モデル設定です。"
+  }
+}
